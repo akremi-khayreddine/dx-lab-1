@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DxPipelines</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#45b2b6" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="styles.688010cd7b6ee3af3a9b.css"></head>
+  <body class="mat-typography">
+    <app-root></app-root>
+    <noscript
+      >Please enable JavaScript to continue using this application.</noscript
+    >
+  <script src="runtime-es2015.e683666f63d43e693147.js" type="module"></script><script src="runtime-es5.e683666f63d43e693147.js" nomodule defer></script><script src="polyfills-es5.1f0ea59e599e601b2ba1.js" nomodule defer></script><script src="polyfills-es2015.b728c9820771dd92ffc5.js" type="module"></script><script src="main-es2015.820da969866a9eda7051.js" type="module"></script><script src="main-es5.820da969866a9eda7051.js" nomodule defer></script></body>
+</html>
