@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "dx-lab": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/dx-lab",
+      "sourceRoot": "projects/dx-lab/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dx-lab",
+            "index": "projects/dx-lab/src/index.html",
+            "main": "projects/dx-lab/src/main.ts",
+            "polyfills": "projects/dx-lab/src/polyfills.ts",
+            "tsConfig": "projects/dx-lab/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/dx-lab/src/favicon.ico",
+              "projects/dx-lab/src/assets"
+            ],
+            "styles": [
+              "projects/dx-lab/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dx-lab/src/environments/environment.ts",
+                  "with": "projects/dx-lab/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dx-lab:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dx-lab:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dx-lab:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dx-lab/src/test.ts",
+            "polyfills": "projects/dx-lab/src/polyfills.ts",
+            "tsConfig": "projects/dx-lab/tsconfig.spec.json",
+            "karmaConfig": "projects/dx-lab/karma.conf.js",
+            "assets": [
+              "projects/dx-lab/src/favicon.ico",
+              "projects/dx-lab/src/assets"
+            ],
+            "styles": [
+              "projects/dx-lab/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dx-lab/tsconfig.app.json",
+              "projects/dx-lab/tsconfig.spec.json",
+              "projects/dx-lab/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dx-lab/e2e/protractor.conf.js",
+            "devServerTarget": "dx-lab:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dx-lab:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "dx-lab-lib": {
+      "projectType": "library",
+      "root": "projects/dx-lab-lib",
+      "sourceRoot": "projects/dx-lab-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dx-lab-lib/tsconfig.lib.json",
+            "project": "projects/dx-lab-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dx-lab-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dx-lab-lib/src/test.ts",
+            "tsConfig": "projects/dx-lab-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/dx-lab-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dx-lab-lib/tsconfig.lib.json",
+              "projects/dx-lab-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "dx-lab"
+}
